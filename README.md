@@ -3,4 +3,4 @@
 Бот работает не всегда (почти ни когда)  
 Just a text quest with a version via a code interpreter and a version via a telegram bot...   
 The bot does not always work (almost never)  
-бот / bot - @OnTheEdgeOfCliff_bot
+бот / bot - [@OnTheEdgeOfCliff_bot](http://t.me/OnTheEdgeOfCliff_bot)
