@@ -9,7 +9,7 @@ mixer.music.play()
 
 sound = True
 
-with open('game.json') as f:
+with open('game.json', encoding='windows-1251') as f:
     data = json.load(f)
 
 print(data['ruels'])
@@ -59,7 +59,7 @@ while game:
             b = a
             break
         elif b == '/start':
-            with open('game.json') as f:
+            with open('game.json', encoding='windows-1251') as f:
                 data = json.load(f)
             b = data['level']
             break
