@@ -11,7 +11,7 @@ ff = {}
 for i in range(len(data[a]['togo'])):
     ff['/' + str(i)] = data[a]['togo'][i]
 
-bot = telebot.TeleBot('5890454132:AAG0Ad9szAx3jEdkxV7vJaJo6NJftKnwI0g')
+bot = telebot.TeleBot('secret token')
 
 @bot.message_handler(commands=["start"])
 def start(m, res=False):
