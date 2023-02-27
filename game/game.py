@@ -16,6 +16,10 @@ print(data['ruels'])
 # цикл игры
 a = data['level']
 game = True
+ff = {}
+for i in range(len(data[a]['togo'])):
+    ff[str(i)] = data[a]['togo'][i]
+    
 while game:
     print(data[a]["text"])
     if 'kill' in data[a]:
@@ -41,18 +45,21 @@ while game:
             continue
         else:
             break
+    ff = {}
+    for i in range(len(data[a]['togo'])):
+        ff[str(i)] = data[a]['togo'][i]
     s = False
-    for i in data[a]['togo']:
-        if i not in data[a]:
+    for i in ff:
+        if ff[i] not in data[a]:
             a = i
             s = True
             break
         print(i, end=" - ")
-        print(data[a][i])
+        print(data[a][ff[i]])
     if s is True:
         continue
     b = ""
-    while b not in data[a]["togo"]:
+    while b not in ff:
         b = input()
         if b == '/exit':
             game = False
@@ -61,7 +68,8 @@ while game:
         elif b == '/start':
             with open('game.json', encoding='windows-1251') as f:
                 data = json.load(f)
-            b = data['level']
+            f = {}
+            ff[b] = data['level'] 
             break
         elif b == '/setting':
             if sound is True:
@@ -92,16 +100,17 @@ while game:
             c = input()
             with open(c + '.json') as file:
                 data = json.load(file)
-                b = data['level']
+                ff = {}
+                ff[b] = data['level']
             break
         elif b == '/rule':
             print(data['ruels'])
-        elif b not in data[a]["togo"]:
+        elif b not in ff:
             print('Что?')
         else:
             pass
-    data['level'] = b
-    a = b
+    data['level'] = ff[b]
+    a= ff[b]
 print('Сохранить (просто введите /save, если хотите сохранит, а далее название файла)')
 a = input()
 if a == '/save':
