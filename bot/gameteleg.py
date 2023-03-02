@@ -54,12 +54,14 @@ def get_text_messages(message):
         if 'luck' in data[a]:
             a = data[a]['luck'][rd.randint(0, len(data[a]["luck"])) - 1]
             if data[a]['togo'] == []:
+                f = {}
                 bot.send_message(message.from_user.id, data[a]['text'])
                 bot.send_message(message.from_user.id, data[a]['st'])
                 print('Пользователь закончил игру')
                 return None
         elif data[a]['togo'] == []:
             bot.send_message(message.from_user.id, data[a]['st'])
+            f = {}
             print('Пользователь закончил игру')
         ff = {}
         for i in range(len(data[a]['togo'])):
