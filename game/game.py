@@ -39,7 +39,7 @@ while game:
         print('Начать занова - /start')
         c = input()
         if c == '/start':
-            with open('game.json') as f:
+            with open('game.json', encoding='windows-1251') as f:
                 data = json.load(f)
             a = data['level']
             continue
