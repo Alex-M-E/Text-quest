@@ -1,6 +1,6 @@
 # Text-quest
 Просто текстовый квест с верcией через интерпритатор кода и с версией через телеграм-бота...  
-Бот работает не всегда (почти ни когда)
+Бот работает не всегда (почти ни когда)  
 В самой игре нужно установить pygame (pip install pygame)   
 В боте нужно установить telebot (pip install pytelegrambotapi)   
 Just a text quest with a version via a code interpreter and a version via a telegram bot...   
