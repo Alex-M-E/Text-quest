@@ -56,6 +56,14 @@ while game:
     ff = {} # пустой словарь для преходов
     for i in range(len(data[a]['togo'])):
         ff[str(i)] = data[a]['togo'][i] # заполняем переходами
+    # выводим переходы
+    for i in ff:
+        if ff[i] not in data[a]:
+            a = i
+            s = True
+            break
+        print(i, end=" - ")
+        print(data[a][ff[i]])
     # пустая строка
     b = ""
     # хреначим пока не игрок не введт что то дельное
