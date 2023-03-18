@@ -14,10 +14,10 @@ ff = {} #  словарь для перехода
 for i in range(len(data[a]['togo'])):
     ff['/' + str(i)] = data[a]['togo'][i]
 
-bot = telebot.TeleBot('secret token') # читай документации
+bot = telebot.TeleBot('5890454132:AAG0Ad9szAx3jEdkxV7vJaJo6NJftKnwI0g') # читай документации
 
 # функция для команды старт
-@bot.message_handler(commands=["start"]) 
+@bot.message_handler(commands=["start"])
 def start(m, res=False):
     # глобальные переменные а - уровень, data - большой соварь с игрой, ff - словарь для перехода
     global a
@@ -35,14 +35,9 @@ def start(m, res=False):
     # выводим номера для переходов
     for i in ff:
         bot.send_message(m.from_user.id, i + " - " + data[a][ff[i]])
-    # создаем кнопки для команд /start и /rule
-    markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
-    item1=types.KeyboardButton("/start")
-    item2=types.KeyboardButton("/rule")
-    markup.add(item1)
-    markup.add(item2)
-    bot.send_message(m.from_user.id, 'Выберай пункт',  reply_markup=markup)
-      
+    # создаем кнопки для команд /start и /rule и для переходов на другие уровни
+    make_buttons(m)
+    
 # функция для вводимых данных   
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
@@ -87,4 +82,20 @@ def get_text_messages(message):
     # если мы попали сюда значит пользователь ввел хрень
     else:
         bot.send_message(message.from_user.id, "Чо?")
+
+# создаем кнопки      
+@bot.message_handler(content_types=['text'])
+def make_buttons(m, res=False):
+    markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
+    item1=types.KeyboardButton("/start")
+    item2=types.KeyboardButton("/rule")
+    markup.add(item1)
+    markup.add(item2)
+    item4=types.KeyboardButton("/0")
+    item5=types.KeyboardButton("/1")
+    item6=types.KeyboardButton("/2")
+    markup.add(item4)
+    markup.add(item5)
+    markup.add(item6)
+    bot.send_message(m.from_user.id, 'Выберай пункт',  reply_markup=markup)
 bot.polling(none_stop=True, interval=0) # стора без которой не будет работать
