@@ -14,7 +14,7 @@ ff = {} #  словарь для перехода
 for i in range(len(data[a]['togo'])):
     ff['/' + str(i)] = data[a]['togo'][i]
 
-bot = telebot.TeleBot('5890454132:AAG0Ad9szAx3jEdkxV7vJaJo6NJftKnwI0g') # читай документации
+bot = telebot.TeleBot('secret-token') # читай документации
 
 # функция для команды старт
 @bot.message_handler(commands=["start"])
