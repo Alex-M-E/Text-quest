@@ -18,7 +18,7 @@ with open('game.json', encoding='windows-1251') as f:
 
 print(data['ruels']) # выводим правила
 a = data['level'] # устанавливаем уровень
-game = True # не нужная переменная
+game = True # нужная переменная
 ff = {} # словарь с ключами с переходами
 for i in range(len(data[a]['togo'])):
     ff[str(i)] = data[a]['togo'][i] # заполняем словарь
